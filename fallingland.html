@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <title>Falling Land</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/fallingland.css')}}">
+        <link rel="stylesheet" href="css/fallingland.css">
+    </head>
+    <body>
+        <div id='gameWrapper'>
+            <canvas id='game'></canvas>
+        </div>
+        <div id='controls' hidden>
+            <div id='tileInfoDisplay'>
+                <div class='tileLabel loading'>
+                </div>
+            </div>
+            <div id='brushSelection'>
+                <button id='fire'  data-brush='fire'>Fire</button>
+                <button id='water'  data-brush='water'>Water</button>
+                <button id='tree'  data-brush='tree'>Tree</button>
+                <button id='land'  data-brush='land'>Land</button>
+                <button id='dig'   data-brush='excavate'>Dig</button>
+                <button id='human' data-brush='human'>Human</button>
+                <button id='flower' data-brush='flower'>Flower</button>
+                <button id='bridge' data-brush='bridge'>Bridge</button>
+            </div>
+            <div id='resources'></div>
+            <div id='messages'></div>
+            <div id='controlsInfoWrapper'>
+                <div id='controlsToggle'>Controls ➡</div>
+                <div id='controlsInfo' hidden>
+                    Pan camera with WASD / Arrow Keys. <br>
+                    Shift to pan faster.<br>
+                    + / - keys to zoom.<br>
+                    Click on brushes, then click the map!.
+                </div>
+            </div>
+        </div>
+        <div id='loadingMessage'>
+            <div id='loadingText'>Loading...</div>
+            <br>
+            <div id='loadingQuote'>
+                <p>
+                In that Empire, the art of Cartography attained such perfection that the map of a single province occupied the entirety of a city,
+                and the map of the Empire, the entirety of a province.
+                </p>
+                <p>
+                In time, those unconscionable maps no longer satisfied, and the Cartographers Guilds struck a map of the Empire
+                whose size was that of the Empire, and which coincided point for point with it.
+                </p>
+            </div>
+        </div>
+        <script type='module' src="./src/main.js"></script>
+    </body>
+</html>

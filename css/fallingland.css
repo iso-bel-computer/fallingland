@@ -1,0 +1,212 @@
+body {
+    margin: 0px;
+    background-color: #c5d3d9;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    font-family: 'Arial', sans-serif;
+}
+canvas {
+    min-width: 100vw;
+    min-height: 100vh;
+    filter: saturate(90%);
+    background-color: #164a24;
+
+}
+#gameWrapper {
+    width: 100vw;
+    height: 100vh;
+    cursor: none;
+    /* filter: saturate(80%) ; */
+}
+
+
+table {
+    border-collapse: collapse;
+    font-size: 9pt
+}
+
+td {
+    padding-right: 12px;
+}
+
+#controls {
+    position: absolute;
+    background-color: #eeeeee;
+    padding: 10px;
+    top: 30px;
+    left: 30px;
+    z-index: 999;
+    opacity: 0.85;
+    min-width: 13vw;
+}
+
+#controls:hover {
+    opacity: 1
+}
+
+#controlsInfoWrapper {
+    margin-top: 5px;
+
+
+
+}
+
+#loadingMessage {
+    font-family: 'Imperator', serif;
+    position: absolute;
+    top: 25vh;
+    left: 30vw;
+    line-height: 80%;
+    padding: 15px;
+    font-size: 12pt;
+    background-color: #ffffff60;
+    min-width: 40vw;
+    max-width: 40vw;
+    text-align: center;
+
+}
+
+#loadingText {
+
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+#loadingQuote {
+    font-size: 8pt;
+    text-align: left;
+    margin-top: 5px;
+    font-style: italic
+}
+
+#controlsToggle {
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+#controlsInfo {
+    font-size: 8pt;
+    overflow: scroll;
+}
+#resources {
+    font-size: 10pt;
+}
+
+#messages {
+    font-size: 10pt;
+    max-width: 100px;
+    max-height: 300px;
+    margin-top: 5px;
+}
+
+#tileInfoDisplay {
+    font-size: 12pt;
+    overflow: scroll;
+
+}
+
+.tileLabel {
+    padding: 5px;
+    margin-bottom: 5px;
+    filter: saturate(50%);
+    width: fit-content
+}
+
+.tileLabel.loading {
+    background-color: grey;
+    color: white;
+}
+.tileLabel.water {
+    background-color: blue;
+    color: white;
+}
+.tileLabel.grass {
+    background-color: seagreen
+}
+.tileLabel.tree {
+    background-color: darkgreen;
+    color: white;
+}
+.tileLabel.ash {
+    background-color: darkgrey;
+    color: white;
+}
+.tileLabel.stone {
+    background-color: grey;
+}
+.tileLabel.mud {
+    background-color: brown;
+    color: white;
+}
+.tileLabel.marsh {
+    background-color: #2a4d25;
+    color: white;
+}
+.tileLabel.sand {
+    background-color: gold;
+}
+.tileLabel.fire {
+    background-color: darkorange !important;
+}
+.tileLabel.snow {
+    background-color: white !important;
+}
+.tileLabel.human {
+    background-color:  #5c483e !important;
+    color: white;
+}
+.tileLabel.bridge {
+    background-color:  #baa663  !important;
+}
+.tileLabel.flower {
+    background-color: pink ;
+}
+
+#brushSelection {
+    display: flex;
+    max-width: 10vw;
+    flex-wrap: wrap;
+    margin-top: 5px;
+
+}
+#brushSelection button {
+    border: 2px solid #ffffff00;
+    filter: saturate(60%);
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+#brushSelection button.active, #brushSelection button:hover {
+    border: 2px solid #00000060;
+    filter: saturate(100%)
+}
+
+#brushSelection #fire {
+    background-color: darkorange;
+}
+#brushSelection #human {
+    background-color: #5c483e;
+    color: white;
+}
+#brushSelection #tree {
+    background-color: darkgreen;
+    color: white;
+}
+#brushSelection #land {
+    background-color: seagreen
+}
+#brushSelection #dig {
+    background-color: brown;
+    color: white;
+}
+#brushSelection #flower {
+    background-color: pink ;
+}
+#brushSelection #bridge {
+    background-color:  #baa663 ;
+}
+
+#brushSelection #water {
+    background-color:  #42b0db ;
+    color: white;
+}
