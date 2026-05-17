@@ -618,8 +618,6 @@ export class Grid {
 
     addBridge(tiles) {
         const bridge = new Bridge(tiles)
-
-
     }
 
 }
