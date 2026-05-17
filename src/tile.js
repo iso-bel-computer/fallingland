@@ -5,6 +5,7 @@ export class Tile {
 
     init() {
         this.assignColour()
+        this.entities = new Set()
         this.setDefaultPassable()
         this.waterlogged = 0
     }
@@ -38,17 +39,6 @@ export class Tile {
     }
 
 
-    addHuman(human) {
-        this.human = human
-        this.human.tile = this
-        this.assignColour()
-
-    }
-    removeHuman() {
-        this.human = null
-        this.assignColour()
-
-    }
     addBridge(bridge) {
         this.bridge = bridge
         this.assignColour()
@@ -68,13 +58,7 @@ export class Tile {
 
         let usingHSL = false
 
-        if (this.human) {
-
-            r = this.human.r
-            g = this.human.g
-            b = this.human.b
-        }
-        else if (this.aflame) {
+        if (this.aflame) {
             r = getRandomInt(150,255)
             g = getRandomInt(20,130)
             b = getRandomInt(17,20)
@@ -288,9 +272,6 @@ export class Tile {
         }
 
 
-        if (this.human) {
-            this.human.tick()
-        }
 
     }
 
@@ -333,7 +314,16 @@ export class Tile {
             this.changeTileType('grass')
         }
     }
+    addEntity(entity) {
+        entity.tile = this
+        this.entities.add(entity)
+        this.assignColour()
+    }
 
+    removeEntity(entity) {
+        this.entities.delete(entity)
+        this.assignColour()
+    }
 
 
 

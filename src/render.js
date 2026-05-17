@@ -123,9 +123,28 @@ export class RenderEngine {
             }
         }
         if (crosshairData && this.drawCrosshair) {
-            r = Math.min(r + crosshairData[1], 255)
-            g = Math.min(g + crosshairData[1], 255)
-            b = Math.min(b + crosshairData[1], 255)
+
+            const light = crosshairData[1]
+            if (tile.elevation - 0.2 <= this.crosshairElevation || tile.elevation < 0) {
+                r = Math.min(r + light, 255)
+                g = Math.min(g + light, 255)
+                b = Math.min(b + light, 255)
+            }
+            else {
+                // const shadow = crosshairData[1] * 0.2
+                // r = Math.max(r + shadow, 0)
+                // g = Math.max(g + shadow, 0)
+                // b = Math.max(b + shadow, 0)
+                null
+
+            }
+        }
+
+        if (tile.entities.size > 0) {
+            const entity = tile.entities.values().next().value
+            r = entity.r
+            g = entity.g
+            b = entity.b
         }
 
         for (let dx = 0; dx < this.pixelScale; dx++) {
@@ -200,7 +219,6 @@ export class RenderEngine {
 
     setZoomLevel(amount) {
         this.pixelScale = this.pixelScale + amount;
-        console.log(this.pixelScale)
         if (this.pixelScale < config.viewSettings.minZoom) this.pixelScale = config.viewSettings.minZoom;
         if (this.pixelScale > config.viewSettings.maxZoom) this.pixelScale = config.viewSettings.maxZoom;
         this.rebuildBuffer();

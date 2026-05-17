@@ -12,12 +12,12 @@ export class gameClass {
         this.render = new RenderEngine()
         this.state = new GameState()
         this.grid = new Grid(this.state)
-        this.entityManager = new EntityManager(this.grid, this.state)
+        this.entities = new EntityManager(this.grid, this.state)
         this.render.grid = this.grid
         this.render.drawTiles()
         this.render.setZoomLevel(5)
         this.render.addEventListener()
-        this.interaction = new Interactions(this.grid, this.render, this.entityManager)
+        this.interaction = new Interactions(this.grid, this.render, this.entities)
         this.interaction.addEventListeners()
         setInterval(() => {
             this.tick()
@@ -28,9 +28,9 @@ export class gameClass {
 
     tick() {
         this.tickCount = this.tickCount + 1;
+        this.entities.tick(this.tickCount)
         this.grid.tick(this.tickCount)
         this.interaction.tick()
-        // this.entityManager.tick(this.tickCount)
         if (this.tickCount % 50 === 0) {
             console.log("Tick: ", this.tickCount)
         }

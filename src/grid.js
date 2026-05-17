@@ -5,8 +5,7 @@ import { getRandomInt, getRandomArbitrary, clamp } from './helpers.js';
 import { WaterManager } from './entities/water.js';
 
 export class Grid {
-    constructor(gameState, entityManager) {
-        this.entities = entityManager
+    constructor(gameState) {
         this.perlin = this.createPerlin();
         this.gameState = gameState
         this.water = new WaterManager(gameState)
@@ -175,7 +174,6 @@ export class Grid {
 
         const xTilt = getRandomArbitrary(-0.4, 0.4)
         const yTilt = getRandomArbitrary(-0.4, 0.4)
-        console.log(xTilt, yTilt)
 
         while (y <= config.gameSettings.canvasHeight) {
 
@@ -235,7 +233,6 @@ export class Grid {
                 startX + getRandomInt(100,200),
                 startY + getRandomInt(100,200),
                 getRandomInt(50,150))
-            console.log(flowers)
             flowers.forEach(flower => {
                 const tile = this.getTile(flower[0], flower[1])
                 if (tile) {
@@ -252,6 +249,7 @@ export class Grid {
             tile.neighbours = this.getTileNeighbours(tile)
             if (tile.neighbours.length < 8) {tile.edgeTile = true}
             tile.immediateNeighbours = this.getImmediateNeighbours(tile)
+            tile.extendedNeighbours  = this.getTileNeighbours(tile, 3)
         })
 
         this.addBeaches(tiles)
