@@ -1,1 +1,2 @@
-.sh
+*.sh
+.DS_STORE
